@@ -11,6 +11,22 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import StarBorder from "@mui/icons-material/StarBorder";
 
+type ListItem = {
+  Icon: React.ElementType;
+  label: string;
+  children?: ListItem[];
+};
+
+const listItems: ListItem[] = [
+  { Icon: SendIcon, label: "Send Email" },
+  { Icon: DraftsIcon, label: "Drafts" },
+  {
+    Icon: InboxIcon,
+    label: "Inbox",
+    children: [{ Icon: StarBorder, label: "Starred" }],
+  },
+];
+
 export default function SidebarList() {
   const [open, setOpen] = React.useState(true);
 
@@ -19,36 +35,39 @@ export default function SidebarList() {
   };
 
   return (
-    <List component="nav">
-      <ListItemButton>
-        <ListItemIcon>
-          <SendIcon />
-        </ListItemIcon>
-        <ListItemText primary="Sent mail" />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemIcon>
-          <DraftsIcon />
-        </ListItemIcon>
-        <ListItemText primary="Drafts" />
-      </ListItemButton>
-      <ListItemButton onClick={handleClick}>
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="Inbox" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
+    <List component="nav" data-testid="SidebarList">
+      {listItems.map(({ Icon, label, children }, index) => (
+        <React.Fragment key={index}>
+          <ListItemButton
+            onClick={() => (!!children ? handleClick() : null)}
+            data-testid="SidebarList.Item"
+          >
             <ListItemIcon>
-              <StarBorder />
+              <Icon />
             </ListItemIcon>
-            <ListItemText primary="Starred" />
+            <ListItemText primary={label} />
+            {!!children ? open ? <ExpandLess /> : <ExpandMore /> : null}
           </ListItemButton>
-        </List>
-      </Collapse>
+          {!!children && (
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {children.map(({ Icon, label }, index) => (
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    key={index}
+                    data-testid="SidebarList.Group.Item"
+                  >
+                    <ListItemIcon>
+                      <Icon />
+                    </ListItemIcon>
+                    <ListItemText primary={label} />
+                  </ListItemButton>
+                ))}
+              </List>
+            </Collapse>
+          )}
+        </React.Fragment>
+      ))}
     </List>
   );
 }

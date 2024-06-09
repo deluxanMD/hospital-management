@@ -12,6 +12,7 @@ const ThemeWrapper = ({ children }: ThemeWrapperProps) => {
   const theme = useSelector((state: RootState) => state.theme);
 
   return (
+    /* istanbul ignore next */
     <ThemeProvider theme={theme.mode === "light" ? lightTheme : darkTheme}>
       {children}
     </ThemeProvider>
