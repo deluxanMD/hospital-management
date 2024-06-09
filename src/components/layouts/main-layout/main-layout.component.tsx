@@ -8,7 +8,7 @@ const MainLayout = () => {
   const { sidebarOpen, onCloseSidebar } = useMainLayoutComponent();
 
   return (
-    <Box display="flex" width="100%" height="100%">
+    <Box display="flex" width="100%" height="100%" data-testid="MainLayout">
       <Sidebar open={sidebarOpen} onClose={onCloseSidebar} />
       <Box
         flexGrow={1}

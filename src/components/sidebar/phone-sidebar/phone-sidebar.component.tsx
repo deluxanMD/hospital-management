@@ -23,7 +23,7 @@ const PhoneSidebar = ({ open, onClose }: SidebarProps) => {
         },
       }}
       PaperProps={{
-        "data-testid": "Sidebar.Drawer",
+        "data-testid": "PhoneSidebar.Drawer",
       }}
     >
       <Box

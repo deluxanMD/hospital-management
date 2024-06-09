@@ -20,7 +20,7 @@ const DesktopSidebar = () => {
         }}
         open
         PaperProps={{
-          "data-testid": "Sidebar.Drawer",
+          "data-testid": "DesktopSidebar.Drawer",
           elevation: 16,
         }}
       >
