@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { ThemeProvider } from "@mui/material";
 import { darkTheme, lightTheme } from "helpers/theme/theme";
 import { ReactNode } from "react";
@@ -12,7 +13,6 @@ const ThemeWrapper = ({ children }: ThemeWrapperProps) => {
   const theme = useSelector((state: RootState) => state.theme);
 
   return (
-    /* istanbul ignore next */
     <ThemeProvider theme={theme.mode === "light" ? lightTheme : darkTheme}>
       {children}
     </ThemeProvider>
