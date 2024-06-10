@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { useMediaQuery, useTheme } from "@mui/material";
 import DesktopSidebar from "./desktop-sidebar/desktop-sidebar.component";
 import PhoneSidebar from "./phone-sidebar/phone-sidebar.component";

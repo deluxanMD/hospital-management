@@ -1,4 +1,5 @@
 import MainLayout from "components/layouts/main-layout/main-layout.component";
+import Dashboard from "pages/dashboard/dashboard.component";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const MainRoutes = () => {
@@ -6,6 +7,12 @@ const MainRoutes = () => {
     {
       path: "/",
       element: <MainLayout />,
+      children: [
+        {
+          index: true,
+          element: <Dashboard />,
+        },
+      ],
     },
   ]);
 

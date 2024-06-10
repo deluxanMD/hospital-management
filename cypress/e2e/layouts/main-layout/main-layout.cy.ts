@@ -32,4 +32,11 @@ describe("<MainLayout />", () => {
       "hidden"
     );
   });
+
+  describe("sidebar", () => {
+    it("sidebar list", () => {
+      cy.visit("http://localhost:3000");
+      cy.findByTestId("SidebarList").should("exist");
+    });
+  });
 });
