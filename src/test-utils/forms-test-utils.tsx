@@ -11,6 +11,7 @@ export const FormWrapper = ({ children, formMethods }: FormWrapperProps) => {
   return (
     <Form
       formMethods={formMethods}
+      /* istanbul ignore next */
       onSubmit={formMethods.handleSubmit(() => null)}
       data-testid="TestForm"
     >
