@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React from "react";
 import Form from "../components/forms/form/form.component";
 import { Button } from "@mui/material";
@@ -11,7 +12,6 @@ export const FormWrapper = ({ children, formMethods }: FormWrapperProps) => {
   return (
     <Form
       formMethods={formMethods}
-      /* istanbul ignore next */
       onSubmit={formMethods.handleSubmit(() => null)}
       data-testid="TestForm"
     >
