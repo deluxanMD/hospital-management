@@ -1,10 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import PageWrapper from "components/page-wrapper/page-wrapper.component";
 
 const Dashboard = () => {
   return (
-    <Box data-testid="Dashboard.Container">
+    <PageWrapper data-testid="Dashboard.Container">
       <Typography>Dashboard</Typography>
-    </Box>
+    </PageWrapper>
   );
 };
 
