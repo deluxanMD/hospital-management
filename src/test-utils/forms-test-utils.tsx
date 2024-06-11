@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React from "react";
 import Form from "../components/forms/form/form.component";
 import { Button } from "@mui/material";

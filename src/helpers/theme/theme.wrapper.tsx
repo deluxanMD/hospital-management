@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { ThemeProvider } from "@mui/material";
 import { darkTheme, lightTheme } from "helpers/theme/theme";
 import { ReactNode } from "react";
