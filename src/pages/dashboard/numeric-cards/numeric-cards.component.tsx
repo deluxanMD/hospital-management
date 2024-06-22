@@ -17,7 +17,7 @@ const NumericCards = ({ Icon, value, title }: NumericCardsProps) => {
   const theme = useTheme();
 
   return (
-    <Grid item xs={6} md={4} lg={2}>
+    <Grid item xs={6} md={4} lg={2} data-testid="NumericCards">
       <Paper elevation={2} sx={{ p: 2 }}>
         <Stack direction="row" spacing={2}>
           <Avatar
