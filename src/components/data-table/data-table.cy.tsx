@@ -45,10 +45,15 @@ const rows = [
 ];
 
 describe("<DataTable />", () => {
-  it("should render the table", () => {
+  it("with test id", () => {
     cy.mount(
       <DataTable rows={rows} columns={columns} data-testid="Test.Table" />
     );
     cy.findByTestId("Test.Table").should("exist");
+  });
+
+  it("without test id", () => {
+    cy.mount(<DataTable rows={rows} columns={columns} />);
+    cy.findByTestId("Data.Table").should("exist");
   });
 });
